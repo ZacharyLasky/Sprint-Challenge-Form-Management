@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import UserForm from './UserForm';
+import FormikUserForm from './UserForm';
 
 class App extends React.Component {
   constructor() {
@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <UserForm />
+        <FormikUserForm />
       </div>
     );
   }

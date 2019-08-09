@@ -14,23 +14,23 @@ function UserForm({ errors, touched, status }) {
   
   return (
     <div className="user-form">
-      <h1>USER FORM</h1>
+      <h1>REGISTRATION FORM</h1>
       <Form>
-        {touched.name && errors.name && <p>{errors.name}</p> }
-        <Field type="text" name="name" placeholder="Name"/>
+        {touched.username && errors.username && <p>{errors.username}</p> }
+        <Field type="text" name="username" placeholder="Name"/>
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password"/>
         
-        <button type="submit">Submit</button>
+        <button type="submit">Register</button>
       </Form>
 
-      {users.map(user => {
+      {/* {users.map(user => {
         return (
           <div className="cards">
             <p>NAME: {user.name}</p>
           </div>
         )
-      })}
+      })} */}
 
     </div>
   )
@@ -39,13 +39,13 @@ function UserForm({ errors, touched, status }) {
 const FormikUserForm = withFormik({
   mapPropsToValues(values) {
     return {
-      name: values.name || '',
+      username: values.username || '',
       password: values.password || ''
     }
   },
 
   validationSchema: Yup.object().shape({
-    name: Yup.string()
+    username: Yup.string()
       .min(1)
       .required("Name is required"),
     password: Yup.string()
@@ -56,10 +56,10 @@ const FormikUserForm = withFormik({
   handleSubmit(values, { setStatus }) {
     // console.log(values);
     axios
-      .post("", values)
+      .post("http://localhost:7000/api/register", values)
       .then(response => {
-        // console.log("RESPONSE", response.data)
-        setStatus(response.data)
+        console.log("RESPONSE", response)
+        setStatus(response)
       })
       .catch(error => {
         console.log("ERROR:", error)

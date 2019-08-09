@@ -27,7 +27,7 @@ function UserForm({ errors, touched, status }) {
       {/* {users.map(user => {
         return (
           <div className="cards">
-            <p>NAME: {user.name}</p>
+            <p>NAME: {user.username}</p>
           </div>
         )
       })} */}
@@ -58,8 +58,8 @@ const FormikUserForm = withFormik({
     axios
       .post("http://localhost:7000/api/register", values)
       .then(response => {
-        console.log("RESPONSE", response)
-        setStatus(response)
+        console.log("RESPONSE", response.data)
+        setStatus(response.data)
       })
       .catch(error => {
         console.log("ERROR:", error)

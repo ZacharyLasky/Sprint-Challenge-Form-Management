@@ -48,6 +48,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        FOOD DISPLAYER
         <FormikUserForm />
         <RecipeCard recipes={this.state.recipes}/>
         <Card data={this.state.data}/>

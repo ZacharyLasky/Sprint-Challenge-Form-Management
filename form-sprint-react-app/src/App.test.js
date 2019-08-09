@@ -7,6 +7,11 @@ describe('<App />', () => {
   it('renders without crashing', () => {
     render(<App />)
   })
+   it('renders without crashing', () => {
+     const div = rtl.render(
+       <div className="App">FOOD DISPLAYER</div>
+     );
+   });
 })
 
 

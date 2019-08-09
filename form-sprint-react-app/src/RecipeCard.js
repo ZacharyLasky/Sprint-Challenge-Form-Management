@@ -6,7 +6,7 @@ function RecipeCard(props) {
     <div className="recipes">
       {props.recipes.map(recipe => {
         return (
-          <p>RECIPE: {recipe.name}</p>
+          <p>FOOD: {recipe.name}</p>
         )
       })}
     </div>
